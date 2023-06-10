@@ -1,0 +1,12 @@
+user.email=fernandoreal.valentim@gmail.com
+user.name=VLtim43
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=https://github.com/VLtim43/SwiftUI.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
+user.name=VLtim43
+user.email=fernandoreal.valentim@gmail.com
