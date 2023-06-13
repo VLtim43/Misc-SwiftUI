@@ -8,25 +8,6 @@ import Foundation
 import SwiftUI
 import PieChart
 
-struct Recipe : Identifiable {
-    let id = UUID()
-    let name: String
-    let description: String
-    let image: String
-    let igredients: [String]
-    let howToMake: String
-    let kcal: Int
-}
-
-
-var Recipes = [
-    Recipe(name: "feijoada", description: "guizado de feijão", image: "https://assets.unileversolutions.com/recipes-v2/54349.jpg", igredients: ["feijao","carne"], howToMake: "como fazer", kcal: 500),
-    Recipe(name: "macarronese", description: "maionese", image: "https://receitinhas.com.br/wp-content/uploads/2023/01/macarronese-Casa-e-Cozinha-Receitas-730x365.jpg", igredients: ["macarrao","legumes"], howToMake: "como fazer", kcal: 500),
-    Recipe(name: "frango assado", description: "guizado de feijão", image: "https://www.kitano.com.br/wp-content/uploads/2019/07/SSP_2480-Frango-assado-com-salsa-e-cebolinha-1.jpg", igredients: ["feijao","carne"], howToMake: "como fazer", kcal: 500),
-    Recipe(name: "strogonoff", description: "maionese", image: "https://www.receitasnestle.com.br/sites/default/files/srh_recipes/861d71239103ef70f76554abf688bfc8.jpg", igredients: ["macarrao","legumes"], howToMake: "como fazer", kcal: 500)
-    
-]
-
 
 extension Color {
     static let lightGrey = Color("lightGrey")
@@ -39,18 +20,23 @@ struct ContentView: View {
             ZStack(){
                 
                 VStack(alignment: .leading) {
+                    Rectangle()
+                        .fill(Color.healthyGreen)
+                        .ignoresSafeArea()
+                        .frame(height: 10)
+                    
                     
                     Text("Recomendados")
                         .font(.title)
                         .fontWeight(.medium)
                         .foregroundColor(Color.healthyGreen)
-                        .padding(.top, 80)
+                        .padding(.top, 50)
                         .padding(.leading, 10)
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
                             ForEach(Recipes) { item in
-                                NavigationLink (destination: Text(item.name)){
+                                NavigationLink(destination: nutriChart(foodItem: item)) {
                                     
                                     VStack() {
                                         Rectangle()
@@ -70,7 +56,8 @@ struct ContentView: View {
                                                 Color.gray
                                             }
                                             .frame(width: 210 , height: 200)
-                                    
+                                            
+                                            
                                         }
                                         Rectangle()
                                             .fill(Color.healthyGreen)
@@ -85,16 +72,19 @@ struct ContentView: View {
                                     .padding(.horizontal, 5)
                                     
                                 }
-                           
-                                             
+                                
+                                
+                                
                             }
                             
                         }
                         
                         Spacer()
+                        
+                        
                     }
                 }
-               
+                
             }
         }
     }

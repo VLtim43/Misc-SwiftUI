@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftui-piechart",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/skw398/SwiftUI-PieChart",
+      "state" : {
+        "branch" : "main",
+        "revision" : "5f881be86b26e8ad4d916840ffc06bed56f0e543"
+      }
+    }
+  ],
+  "version" : 2
+}

@@ -11,6 +11,11 @@
 		C3BEA8D52A30F08D00581AC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BEA8D42A30F08D00581AC0 /* ContentView.swift */; };
 		C3BEA8D72A30F08E00581AC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3BEA8D62A30F08E00581AC0 /* Assets.xcassets */; };
 		C3BEA8DA2A30F08E00581AC0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3BEA8D92A30F08E00581AC0 /* Preview Assets.xcassets */; };
+		C3BEA8E62A377E8100581AC0 /* PieChart in Frameworks */ = {isa = PBXBuildFile; productRef = C3BEA8E52A377E8100581AC0 /* PieChart */; };
+		C3BEA8E82A37931800581AC0 /* recipesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BEA8E72A37931800581AC0 /* recipesList.swift */; };
+		C3BEA8EA2A37933100581AC0 /* recipeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BEA8E92A37933100581AC0 /* recipeStruct.swift */; };
+		C3BEA8EC2A379F5500581AC0 /* detailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BEA8EB2A379F5500581AC0 /* detailedView.swift */; };
+		C3BEA8F02A38DD2D00581AC0 /* pieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BEA8EF2A38DD2D00581AC0 /* pieChart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,10 @@
 		C3BEA8D42A30F08D00581AC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C3BEA8D62A30F08E00581AC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3BEA8D92A30F08E00581AC0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C3BEA8E72A37931800581AC0 /* recipesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipesList.swift; sourceTree = "<group>"; };
+		C3BEA8E92A37933100581AC0 /* recipeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeStruct.swift; sourceTree = "<group>"; };
+		C3BEA8EB2A379F5500581AC0 /* detailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailedView.swift; sourceTree = "<group>"; };
+		C3BEA8EF2A38DD2D00581AC0 /* pieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pieChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3BEA8E62A377E8100581AC0 /* PieChart in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,10 +61,14 @@
 		C3BEA8D12A30F08D00581AC0 /* foodfy */ = {
 			isa = PBXGroup;
 			children = (
+				C3BEA8E92A37933100581AC0 /* recipeStruct.swift */,
+				C3BEA8E72A37931800581AC0 /* recipesList.swift */,
+				C3BEA8EB2A379F5500581AC0 /* detailedView.swift */,
 				C3BEA8D22A30F08D00581AC0 /* foodfyApp.swift */,
 				C3BEA8D42A30F08D00581AC0 /* ContentView.swift */,
 				C3BEA8D62A30F08E00581AC0 /* Assets.xcassets */,
 				C3BEA8D82A30F08E00581AC0 /* Preview Content */,
+				C3BEA8EF2A38DD2D00581AC0 /* pieChart.swift */,
 			);
 			path = foodfy;
 			sourceTree = "<group>";
@@ -83,6 +97,9 @@
 			dependencies = (
 			);
 			name = foodfy;
+			packageProductDependencies = (
+				C3BEA8E52A377E8100581AC0 /* PieChart */,
+			);
 			productName = foodfy;
 			productReference = C3BEA8CF2A30F08D00581AC0 /* foodfy.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +128,9 @@
 				Base,
 			);
 			mainGroup = C3BEA8C62A30F08D00581AC0;
+			packageReferences = (
+				C3BEA8E42A377E8100581AC0 /* XCRemoteSwiftPackageReference "SwiftUI-PieChart" */,
+			);
 			productRefGroup = C3BEA8D02A30F08D00581AC0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +157,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3BEA8E82A37931800581AC0 /* recipesList.swift in Sources */,
 				C3BEA8D52A30F08D00581AC0 /* ContentView.swift in Sources */,
+				C3BEA8EC2A379F5500581AC0 /* detailedView.swift in Sources */,
+				C3BEA8EA2A37933100581AC0 /* recipeStruct.swift in Sources */,
 				C3BEA8D32A30F08D00581AC0 /* foodfyApp.swift in Sources */,
+				C3BEA8F02A38DD2D00581AC0 /* pieChart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +361,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C3BEA8E42A377E8100581AC0 /* XCRemoteSwiftPackageReference "SwiftUI-PieChart" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/skw398/SwiftUI-PieChart";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C3BEA8E52A377E8100581AC0 /* PieChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3BEA8E42A377E8100581AC0 /* XCRemoteSwiftPackageReference "SwiftUI-PieChart" */;
+			productName = PieChart;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C3BEA8C72A30F08D00581AC0 /* Project object */;
 }
