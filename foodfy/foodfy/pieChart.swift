@@ -10,40 +10,53 @@ import PieChart
 
 struct nutriChart: View {
     let foodItem: Recipe
-    var fruits: [(name: String, count: Int, color: Color)] = []
+    var nutri: [(name: String, count: Int, color: Color)] = []
     
     init(foodItem: Recipe) {
         self.foodItem = foodItem
         
-        fruits = [
-            ("proteina", foodItem.nutrients[0] , .yellow),
-            ("gorduras", foodItem.nutrients[1], .green),
-            ("carboidratos", foodItem.nutrients[2], .red),
-            ("fibra", foodItem.nutrients[3], .purple)
-            
+        nutri = [
+            ("primeiro", foodItem.nutrients[0] , .yellow),
+            ("segundo", foodItem.nutrients[1], .green),
+            ("terceiro", foodItem.nutrients[2], .red),
+            ("quarto", foodItem.nutrients[3], .purple)
         ]
     }
     
     var body: some View {
+        
+        
         VStack(alignment: .leading){
+            
+            Text(foodItem.name.capitalized)
+                .font(.title)
+                .fontWeight(.medium)
+                .foregroundColor(Color.healthyGreen)
+                .padding(.leading, 10)
+            
             PieChart(
-                values: fruits.map(\.count),
-                colors: fruits.map(\.color),
-                config: Config(hole: 0.6) // 0~1.0
-            ).overlay(Text(String(foodItem.kcal))
+                values: nutri.map(\.count),
+                colors: nutri.map(\.color),
+                config: Config(hole: 0.6) 
+            )
+            
+            .overlay(Text(String(foodItem.kcal))
                 .font(.title))
             
-            ForEach(fruits.indices, id: \.self) { index in
+            ForEach(nutri.indices, id: \.self) { index in
                 HStack {
                     Rectangle()
-                        .foregroundColor(fruits[index].color)
+                        .foregroundColor(nutri[index].color)
                         .frame(width: 20, height: 20)
-                    Text(fruits[index].name.capitalized)
+                        .cornerRadius(5)
+                    Text(nutri[index].name.capitalized)
+                        .font(.title)
+                    Text(String(nutri[index].count))
                         .font(.title)
                 }
+                .padding(.leading, 10)
             }
         }
-        .padding()
         .padding(.bottom, 130)
     }
 }

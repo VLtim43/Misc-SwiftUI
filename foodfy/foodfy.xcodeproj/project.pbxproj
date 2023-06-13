@@ -61,6 +61,7 @@
 		C3BEA8D12A30F08D00581AC0 /* foodfy */ = {
 			isa = PBXGroup;
 			children = (
+				C3BEA8EF2A38DD2D00581AC0 /* pieChart.swift */,
 				C3BEA8E92A37933100581AC0 /* recipeStruct.swift */,
 				C3BEA8E72A37931800581AC0 /* recipesList.swift */,
 				C3BEA8EB2A379F5500581AC0 /* detailedView.swift */,
@@ -68,7 +69,6 @@
 				C3BEA8D42A30F08D00581AC0 /* ContentView.swift */,
 				C3BEA8D62A30F08E00581AC0 /* Assets.xcassets */,
 				C3BEA8D82A30F08E00581AC0 /* Preview Content */,
-				C3BEA8EF2A38DD2D00581AC0 /* pieChart.swift */,
 			);
 			path = foodfy;
 			sourceTree = "<group>";
