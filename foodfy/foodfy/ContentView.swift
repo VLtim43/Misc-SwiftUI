@@ -15,29 +15,32 @@ extension Color {
 }
 
 struct ContentView: View {
+    @StateObject var viewModel = ViewModel()
+
     var body: some View {
         TabView{
-            HomeView()
+            HomeView(allRecipes: viewModel.cloudRecipes)
                 .tabItem{
                     Label("Home", systemImage: "house")
                 }
-            SearchView(allRecipes: Recipes, allIngredients: Ingredientes)
+            SearchView(allRecipes: viewModel.cloudRecipes, allIngredients: Ingredientes)
                 .navigationBarTitle("Recipe Search")
                 .tabItem{
                     Label("Search",systemImage: "magnifyingglass")
                 }
             
-            favoritos(allRecipes: Recipes, allIngredients: Ingredientes)
+            favoritos(allRecipes: viewModel.cloudRecipes, allIngredients: Ingredientes)
             
                 .tabItem{
                     Label("Favorites", systemImage:  "heart.fill")
                 }
             
         }.accentColor(.healthyGreen)
-        
-        
-        
-        
+            .onAppear(){
+                viewModel.fetch()
+                
+                
+            }
     }
     
 }

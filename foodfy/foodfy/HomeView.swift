@@ -7,17 +7,22 @@
 
 import SwiftUI
 
+
 struct HomeView: View {
+   // @State var Recipes : Recipe
+    let allRecipes: [Recipe]
+    @StateObject var viewModel = ViewModel()
+    @State private var list1 = [Recipe]()
+
     var body: some View {
-        
+    
+
         ZStack(){
-            
             VStack() {
                 Rectangle()
                     .fill(Color.healthyGreen)
                     .ignoresSafeArea()
                     .frame(height: 10)
-                
                 
                 NavigationStack {
                     VStack(alignment: .leading) {
@@ -30,7 +35,7 @@ struct HomeView: View {
                         
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
-                                ForEach(Recipes) { item in
+                                ForEach(allRecipes, id:  \._id) { item in
                                     NavigationLink(destination: detailedView(foodItem: item)) {
                                         
                                         VStack() {
@@ -83,13 +88,13 @@ struct HomeView: View {
                 }
                 
             }
-        }.accentColor(.black)
+        }
+       
+        .accentColor(.black)
     }
     
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+
+
+

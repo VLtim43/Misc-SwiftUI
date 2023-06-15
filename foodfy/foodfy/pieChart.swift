@@ -16,10 +16,10 @@ struct nutriChart: View {
         self.foodItem = foodItem
         
         nutri = [
-            ("primeiro", foodItem.nutrients[0] , .yellow),
-            ("segundo", foodItem.nutrients[1], .green),
-            ("terceiro", foodItem.nutrients[2], .red),
-            ("quarto", foodItem.nutrients[3], .purple)
+            ("Carboidratos", foodItem.nutrients[0] , .yellow),
+            ("Proteinas", foodItem.nutrients[1], .green),
+            ("Gorduras", foodItem.nutrients[2], .red),
+            ("Fibras", foodItem.nutrients[3], .purple)
         ]
     }
     
@@ -40,24 +40,24 @@ struct nutriChart: View {
                 config: Config(hole: 0.6) 
             )
             
-            .overlay(Text(String(foodItem.kcal))
-                .font(.title))
+            .overlay(Text("Kcal:" + String(foodItem.kcal))
+                .font(.title3))
             
             ForEach(nutri.indices, id: \.self) { index in
                 HStack {
                     Rectangle()
                         .foregroundColor(nutri[index].color)
-                        .frame(width: 20, height: 20)
-                        .cornerRadius(5)
+                        .frame(width: 16, height: 16)
+                        .cornerRadius(8)
                     Text(nutri[index].name.capitalized)
-                        .font(.title)
+                        .font(.title3)
                     Text(String(nutri[index].count))
-                        .font(.title)
+                        .font(.title3)
                 }
                 .padding(.leading, 10)
             }
         }
-        .padding(.bottom, 130)
+        .padding(.bottom, 80)
     }
 }
 

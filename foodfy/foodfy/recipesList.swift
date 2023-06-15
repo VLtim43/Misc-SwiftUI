@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct recipesList: View {
+    @StateObject var viewModel = ViewModel()
+
     var body: some View {
         NavigationStack {
             ZStack() {
                 ScrollView() {
-                    ForEach(Recipes) { item in
+                    ForEach(viewModel.cloudRecipes, id:  \._id) { item in
                         NavigationLink (destination: Text(item.name)){
                             HStack() {
                                 AsyncImage(url: URL(string: item.image)) { image in

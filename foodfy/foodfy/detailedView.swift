@@ -29,6 +29,8 @@ struct detailedView: View {
     var foodItem: Recipe
     @State private var isExpanded = false
     @State private var showingSheet = false
+    @State var isPlaying : Bool = false
+    
     var body: some View {
         
         NavigationStack{
@@ -39,14 +41,41 @@ struct detailedView: View {
                     
                     VStack(alignment: .leading){
                         
-                        Text(foodItem.name.capitalized)
-                            .font(.title)
-                            .multilineTextAlignment(.leading)
-                            .foregroundColor(Color.green)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .fontWeight(.medium)
-                            .foregroundColor(Color.healthyGreen)
-                            .padding(.leading, 10)
+                        HStack {
+                            
+                            
+                            
+                            Text(foodItem.name.capitalized)
+                                .font(.title)
+                                .multilineTextAlignment(.leading)
+                                .foregroundColor(Color.green)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .fontWeight(.medium)
+                                .foregroundColor(Color.healthyGreen)
+                                .padding(.leading, 10)
+                            
+                            
+                            Button(action: {
+                                if(!global.favoritas.contains(where: { $0.name == foodItem.name })){
+                                    global.favoritas = addReceitaFavorita(rec: foodItem)
+                                    isPlaying = true
+                                    self.isPlaying.toggle()
+                                }else{
+                                    global.favoritas = removeReceitaFavorita(rec: foodItem, listaFavoritas: global.favoritas)
+                                    isPlaying = false
+                                    self.isPlaying.toggle()
+                                }
+                                self.isPlaying.toggle()
+                            }) {
+                                Image(systemName: self.isPlaying == true ? "heart.fill" : "heart")
+                                    .resizable()
+                                    
+                                    .frame(width: 20, height: 20)
+                            }.padding(.trailing, 10)
+                            
+                            
+                        }
+                        
                         
                         
                         AsyncImage(url: URL(string: foodItem.image)){ image in
@@ -55,23 +84,17 @@ struct detailedView: View {
                             
                             
                                 .resizable()
-                                .frame(width: 400, height: 300)
+                                .frame(width: 380, height: 280)
                                 .aspectRatio(contentMode: .fit)
                                 .ignoresSafeArea(.all)
                                 .border(Color.green, width: 10)
-
+                            
                         } placeholder: {
                         }
                         
                         
                         
                         VStack(alignment: .leading){
-                            Button {
-                               // foodItem.toggleFavorite()
-                            } label: {
-                                    Text("Adicionar fav")
-                            }
-                            
                             DisclosureGroup(
                                 isExpanded: $isExpanded,
                                 content: {
